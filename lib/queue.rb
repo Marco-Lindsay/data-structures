@@ -21,7 +21,7 @@ class Queue
   end
 
   def dequeue
-    raise "There doesnt appear to be anything in your motherfucking asss yet" if @front.nil?
+    raise "There doesnt appear to be anything in your queue" if @front.nil?
     old_front = @front.value
     @front = @front.pointer
     @count -=1

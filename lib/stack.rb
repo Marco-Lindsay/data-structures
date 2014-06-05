@@ -10,7 +10,7 @@ class Stack
     if @head.nil?
       @head = current_node
     else
-      current_node.next = @head
+      current_node.next_node = @head
       @head = current_node
     end
     @count += 1
@@ -26,7 +26,7 @@ class Stack
     end
     @count -= 1
   end
-
+end
  class Node
     attr_accessor :value, :next_node
 

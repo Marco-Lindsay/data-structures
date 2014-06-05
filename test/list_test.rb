@@ -1,6 +1,7 @@
 require "minitest/autorun"
 require "pry"
 require "linked_list"
+require "minitest/pride"
 
 describe "Test linked list"  do
 

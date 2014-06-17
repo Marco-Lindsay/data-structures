@@ -35,34 +35,23 @@ class List
     return nil
   end
 
-  # def remove(value)
-  #   if @head.value == value
-  #     @head = @head.next_node
-  #   else
-  #     current_node = @head.next_node
-  #     prior_node = @head
-  #     while current_node
-  #       if current_node.value == value
-  #         prior_node.next_node = current_node.next_node
-  #         current_node = nil
-  #       else
-  #         prior_node = current_node
-  #         current_node = current_node.next_node
-  #       end
-  #     end
-  #   end
-  # end
-
-    def remove(node_to_delete)
-      return nil if empty? || node_to_delete.nil?
-      prev_node = node_to_delete.prev_node
-      next_node = node_to_delete.next_node
-      prev_node.next_node = next_node
-      next_node.prev_node = prev_node
-      @node_count -= 1
-      return nil
-    end
-end
+  def remove(value)
+    if @head.value == value
+      @head = @head.next_node
+    else
+      current_node = @head.next_node
+      prior_node = @head
+      while current_node
+        if current_node.value == value
+          prior_node.next_node = current_node.next_node
+          current_node = nil
+        else
+          prior_node = current_node
+          current_node = current_node.next_node
+        end
+      end
+    end
+  end
 
     def to_s
       node = @head

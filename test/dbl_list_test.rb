@@ -50,6 +50,7 @@ describe "it should have no duplicates" do
     @list = List.new
     @short_list = List.new
     @array = []
+    @no_dup = "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"
 
     (1..10).each do |num|
       @short_list.add(num)
@@ -59,7 +60,9 @@ describe "it should have no duplicates" do
     @array.each do |n|
       @list.add(n)
     end
+
     @short_list.add(5)
+    @unique = @array.uniq.to_s.gsub('[', '').gsub(']','')
   end
 
   it "its size is what it should be" do
@@ -68,16 +71,12 @@ describe "it should have no duplicates" do
   end
 
   it "will not have any duplicates" do
-    no_dup = "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"
-    unique_chomped = @array.uniq.to_s.chomp(']').reverse.chomp('[').reverse
-    assert_equal unique_chomped, @list.deduplicate_array.to_s
-    assert_equal no_dup, @short_list.deduplicate_array.to_s
+    assert_equal @unique, @list.deduplicate_array.to_s
+    assert_equal @no_dup, @short_list.deduplicate_array.to_s
   end
 
   it "will not have any duplicates" do
-    no_dup = "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"
-    unique_chomped = @array.uniq.to_s.chomp(']').reverse.chomp('[').reverse
-    assert_equal unique_chomped, @list.deduplicate.to_s
-    assert_equal no_dup, @short_list.deduplicate.to_s
+    assert_equal @unique, @list.deduplicate.to_s
+    assert_equal @no_dup, @short_list.deduplicate.to_s
   end
 end

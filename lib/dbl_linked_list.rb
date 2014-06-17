@@ -73,7 +73,7 @@ class List
 
     def deduplicate_array
       list = List.new
-      self.to_s.split(",").map {|s| s.to_i}.uniq.each {|num| list.add(num)}
+      self.to_s.split(",").map(&:to_i).uniq.each {|num| list.add(num)}
       list
     end
 

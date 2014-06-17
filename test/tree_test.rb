@@ -1,5 +1,5 @@
 require "minitest/autorun"
-require "pry"
+# require "pry"
 require "tree"
 
 describe "binary tree print methods"  do

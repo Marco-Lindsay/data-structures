@@ -48,22 +48,22 @@ describe "it should have no duplicates" do
 
   before do
     @list = List.new
-    @lisst = List.new
+    @short_list = List.new
     @array = []
 
     (1..10).each do |num|
-      @lisst.add(num)
+      @short_list.add(num)
     end
 
     100.times { @array << rand(100)}
     @array.each do |n|
       @list.add(n)
     end
-    @lisst.add(5)
+    @short_list.add(5)
   end
 
   it "its size is what it should be" do
-    @lisst.size.must_equal 11
+    @short_list.size.must_equal 11
     @list.size.must_equal 100
   end
 
@@ -71,13 +71,13 @@ describe "it should have no duplicates" do
     no_dup = "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"
     unique_chomped = @array.uniq.to_s.chomp(']').reverse.chomp('[').reverse
     assert_equal unique_chomped, @list.deduplicate_array.to_s
-    assert_equal no_dup, @lisst.deduplicate_array.to_s
+    assert_equal no_dup, @short_list.deduplicate_array.to_s
   end
 
   it "will not have any duplicates" do
     no_dup = "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"
     unique_chomped = @array.uniq.to_s.chomp(']').reverse.chomp('[').reverse
     assert_equal unique_chomped, @list.deduplicate.to_s
-    assert_equal no_dup, @lisst.deduplicate.to_s
+    assert_equal no_dup, @short_list.deduplicate.to_s
   end
 end

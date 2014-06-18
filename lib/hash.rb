@@ -15,7 +15,7 @@ class HashTable
 
 
   def hasher(key)
-    key.each_byte.inject(:+) % @hash_table.length
+    key.each_byte.reduce(:+) % @hash_table.length
   end
 
   def get(key)

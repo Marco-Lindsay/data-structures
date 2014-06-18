@@ -38,5 +38,4 @@ describe "hash tests" do
     assert_equal @hash.get("ocram"), "back_name"
   end
 
-
 end

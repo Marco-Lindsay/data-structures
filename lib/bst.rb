@@ -43,16 +43,16 @@ class BinarySearchTree
   end
 
   def post_order
-    @left.post_order if @left
-    @right.post_order if @right
+    left.post_order if left
+    right.post_order if right
     @@output << value
     @@output
   end
 
   def pre_order
     @@output << value
-    @left.pre_order if @left
-    @right.pre_order if @right
+    left.pre_order if left
+    right.pre_order if right
     @@output
   end
 
@@ -63,10 +63,24 @@ class BinarySearchTree
     @@output
   end
 
+  def breadth_first
+    queue = [self]
+    arr = []
+    until queue.empty?
+      current = queue.shift
+      unless current.value.nil?
+        arr << current.value
+        queue << current.left
+        queue << current.right
+      end
+    end
+    arr
+  end
 end
 
 class NullBst
-  attr_reader :parent
+  attr_reader :parent, :value
+
 
   def initialize(parent)
     @parent = parent
@@ -100,5 +114,9 @@ class NullBst
 
   def in_order
   end
+
+  def breadth_first
+  end
+
 
 end

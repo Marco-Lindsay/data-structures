@@ -26,8 +26,9 @@ describe "binary tree traversal methods" do
   it "should have a in order traversal method" do
     @tree.in_order.must_equal [6, 7, 9, 10, 11, 13, 14]
   end
-  #
-  # it "should have a breadth first method" do
-  # end
+
+  it "should have a breadth first method" do
+    @tree.breadth_first.must_equal [10, 7, 13, 6, 9, 11, 14]
+  end
 
 end

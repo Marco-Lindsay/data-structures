@@ -5,6 +5,7 @@ class BinarySearchTree
     @value = value
     @left = NullBst.new(self)
     @right = NullBst.new(self)
+    @@output = []
   end
 
   def insert(value)
@@ -40,6 +41,28 @@ class BinarySearchTree
   def balance
     @left.depth - @right.depth
   end
+
+  def post_order
+    @left.post_order if @left
+    @right.post_order if @right
+    @@output << value
+    @@output
+  end
+
+  def pre_order
+    @@output << value
+    @left.pre_order if @left
+    @right.pre_order if @right
+    @@output
+  end
+
+  def in_order
+    left.in_order if left
+    @@output << value
+    right.in_order if right
+    @@output
+  end
+
 end
 
 class NullBst
@@ -68,4 +91,14 @@ class NullBst
   def depth
     0
   end
+
+  def post_order
+  end
+
+  def pre_order
+  end
+
+  def in_order
+  end
+
 end

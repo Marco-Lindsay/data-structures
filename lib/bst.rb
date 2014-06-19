@@ -81,7 +81,6 @@ end
 class NullBst
   attr_reader :parent, :value
 
-
   def initialize(parent)
     @parent = parent
   end
@@ -117,6 +116,5 @@ class NullBst
 
   def breadth_first
   end
-
 
 end

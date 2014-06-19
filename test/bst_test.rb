@@ -41,4 +41,15 @@ describe "binary tree" do
     assert_equal @tree.depth, 3
   end
 
+  it "will return an integer for how well balanced the tree is" do
+    assert_equal @tree.balance, 0
+    @tree.insert(5)
+    assert_equal @tree.balance, -1
+    @tree.insert(6)
+    assert_equal @tree.balance, -2
+    @tree.insert(1)
+    @tree.insert(2)
+    @tree.insert(3)
+    assert_equal @tree.balance, 1
+  end
 end

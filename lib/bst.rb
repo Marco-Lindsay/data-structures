@@ -51,4 +51,10 @@ class BinarySearchTree
       [@left, @right].collect {|v| v.nil? ? 1 : v.depth + 1}.max
   end
 
+  def balance
+    @left ? left_side = @left.depth :  left_side = 0
+    @right ? right_side = (@right.depth) * -1 : right_side = 0
+    left_side + right_side
+  end
+
 end

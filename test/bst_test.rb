@@ -28,7 +28,17 @@ describe "binary tree" do
   it "size will return the size" do
     assert_equal @tree.size, 1
     @tree.insert(7)
+    assert_equal @tree.size, 2
+  end
 
+  it "will return the level of depth" do
+    assert_equal @tree.depth, 1
+    @tree.insert(5)
+    assert_equal @tree.depth, 2
+    @tree.insert(3)
+    assert_equal @tree.depth, 2
+    @tree.insert(6)
+    assert_equal @tree.depth, 3
   end
 
 end

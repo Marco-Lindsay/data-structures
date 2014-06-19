@@ -39,18 +39,16 @@ class BinarySearchTree
       false
     end
   end
-  # def size
-  #   count = 0
-  #   traverse(count)
-  #   count
-  # end
-  #
-  # def size
-  #   count = 0
-  #   @left.size if @left
-  #   @right.size if @right
-  #   count
-  # end
 
+  def size(count = [])
+    count << 1
+    @left.size(count) if @left
+    @right.size(count) if @right
+    count.size
+  end
+
+  def depth
+      [@left, @right].collect {|v| v.nil? ? 1 : v.depth + 1}.max
+  end
 
 end
